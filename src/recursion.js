@@ -52,12 +52,33 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+var sum_sumBelow = 0;
+var neg_Below = 0;
+  if(n === 0){
+    return 0;
+  }
+  if(n < 0){
+
+    return neg_Below = (n + 1 + sumBelow(n + 1));
+  }
+  if(!sum_sumBelow){
+  return sum_sumBelow = n - 1 + sumBelow(n - 1);
+  }
+
+
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
-var range = function(x, y) {
-};
+var range = function(x, y, step) {
+    var a=x, b=y;
+    while(b<stop){b+=step;a.push(b)}
+    return a;
+  };
+
+
+
+
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
