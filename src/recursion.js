@@ -181,30 +181,60 @@ var multiply = function(x, y) {
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods.
 var divide = function(x, y) {
-};
 
+};
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
 // integers is the greatest integer that divides both x and y with no remainder.
 // gcd(4,36); // 4
 // http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
-var gcd = function(x, y) {
+
+
+function gcd(x, y) {
+  if(x < 0 || y < 0)
+  return null    // This is the function I don't quite understand
+if (y === 0)
+    return x;
+else
+    return gcd(y, x%y);
+
 };
 
-// 15. Write a function that compares each character of two strings and returns true if
+
 // both are identical.
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
-};
+      if(str1.length === 0 && str2.length === 0){
+          return true;
+      } else if(str1[0] === str2[0]){
+          return compareStr(str1.slice(1), str2.slice(1))
+      }
+      return false;
+    };
+
+
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str) {
+var createArray = function(str){
+    var arr = [];
+    if(str.length === 0) {
+        return arr;
+    }
+    arr.push(str[0]);
+    arr = arr.concat(createArray(str.slice(1)));
+    return arr;
 };
 
+
 // 17. Reverse the order of an array
-var reverseArr = function(array) {
+var reverseArr = function (array) {
+  var reversed = [];
+  if(array.length === 0) { return reversed; }
+  reversed.push(array.pop());
+  reversed = reversed.concat(reverseArr(array.slice(0)));
+  return reversed;
 };
 
 // 18. Create a new array with a given value and length.
